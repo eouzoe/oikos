@@ -1,0 +1,23 @@
+# Secrets — never commit these
+secrets.yaml
+secrets.json
+*.age
+~/.secrets.env
+
+# Backups
+*.bak
+*.orig
+
+# Nix build output
+result
+result-*
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db

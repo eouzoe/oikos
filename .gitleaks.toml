@@ -1,0 +1,13 @@
+title = "oikos gitleaks config"
+
+[allowlist]
+description = "Allowed patterns"
+paths = [
+    '''flake\.lock''',
+]
+
+[[rules]]
+id = "nix-store-path"
+description = "Nix store paths (not secrets)"
+regex = '''/nix/store/[a-z0-9]{32}-'''
+allowlist = { regexTarget = "match" }
