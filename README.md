@@ -105,7 +105,3 @@ editor integration — but is never a hard dependency.
 
 The configuration files in this repository are released under
 [MIT](https://opensource.org/licenses/MIT). Use them as you wish.
-
----
-
-*Things fall apart; the centre cannot hold. Apeiron holds.*
