@@ -41,7 +41,6 @@ in
     gh
     gitleaks
     lefthook
-    marksman     # Markdown LSP
     firecracker
     nixd         # Nix LSP
     nixfmt       # was nixfmt-rfc-style
@@ -56,9 +55,6 @@ in
     yq-go
     fzf
     zoxide
-
-    # Neovim
-    neovim
 
     # sops (secrets)
     sops
@@ -138,7 +134,7 @@ in
     settings = {
       user = {
         name = "eouzoe";
-        email = "pappdatap@gmail.com";
+        email = "114808976+eouzoe@users.noreply.github.com";
       };
       init.defaultBranch = "master";
       push.autoSetupRemote = true;
@@ -211,15 +207,9 @@ in
     settings.git_protocol = "ssh";
   };
 
-  # ── Nix config ───────────────────────────────────────────────
-  home.file.".config/nix/nix.conf".text = ''
-    experimental-features = nix-command flakes
-  '';
-
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    COMPACT_THRESHOLD = "30";
   };
 
   programs.home-manager.enable = true;

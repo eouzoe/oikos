@@ -1,7 +1,12 @@
 # oikos — declarative development environment
 
+# Lint and validate configuration
+check:
+    nix flake check --no-build /etc/nixos
+    nix-instantiate --eval /etc/nixos --attr nixosConfigurations.apeiron.config.system.build.toplevel > /dev/null
+
 # Apply configuration (first time or after changes)
-setup:
+setup: check
     sudo nixos-rebuild switch --flake /etc/nixos#apeiron
 
 # Alias for setup
@@ -10,6 +15,7 @@ rebuild: setup
 # Preview changes without applying
 dry:
     nixos-rebuild dry-activate --flake /etc/nixos#apeiron 2>&1
+    home-manager build --flake /etc/nixos#eouzoe 2>&1 | tail -5
 
 # Update all flake inputs
 update:
@@ -30,7 +36,6 @@ status:
 customise:
     $EDITOR /etc/nixos/home.nix
 
-# Garbage-collect old generations (keep last 5)
+# Garbage-collect old generations (keep last 14 days)
 gc:
     sudo nix-collect-garbage --delete-older-than 14d
-    nix store optimise

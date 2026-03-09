@@ -30,14 +30,13 @@
     isNormalUser = true;
     home = "/home/eouzoe";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker" "kvm" ];
+    extraGroups = [ "wheel" "kvm" ];
   };
 
   programs.zsh.enable = true;
 
   # ── System packages (minimal — user tools go in home.nix) ───
   environment.systemPackages = with pkgs; [
-    git
     curl
     wget
     htop

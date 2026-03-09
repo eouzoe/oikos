@@ -91,15 +91,26 @@ editor integration — but is never a hard dependency.
 
 ## Roadmap
 
-- [ ] MoonBit Nix derivation — pin version via `fetchurl`, replace impure curl install
-- [ ] Dual devShell for projects — `default` (agent, minimal) + `human` (interactive)
-- [ ] MoonBit Wasm oracle infrastructure — `#declaration_only` specs, WIT interfaces, wasmtime integration
+### v0.1 — Foundation ✓ (current)
+- [x] NixOS-WSL baseline — `configuration.nix`, networking, KVM, Podman
+- [x] Home Manager — Zsh, Starship, Git+Delta, direnv, fzf, zoxide, bat, eza
+- [x] Rust toolchain — stable + rust-analyzer + 12 cargo extensions via rust-overlay
+- [x] Dual devShell — `default` (agent, minimal) + `human` (interactive + MoonBit)
+- [x] `justfile` workflow — setup, dry, update, status, gc, check
+
+### v0.2 — Security & Stability
 - [ ] sops-nix secrets management — replace `~/.secrets.env` with age-encrypted secrets
-- [ ] Audit queue foundation — ractor supervision + wasmtime sandboxing
+- [ ] WSL2 systemd workaround — address `user@1000` cgroup race condition (microsoft/WSL#13826)
+- [ ] Cachix binary cache — pre-built derivations for faster contributor onboarding
+
+### v0.3 — Developer Experience
 - [ ] Gate tiers in justfile — loop (<5s), commit (<30s), PR (<5min), weekly (<60min)
 - [ ] NixOS shared overlays — common derivations across projects (MoonBit, custom tools)
-- [ ] Cachix binary cache — pre-built derivations for faster contributor onboarding
-- [ ] WSL2 systemd workaround — address `user@1000` cgroup race condition
+- [ ] MoonBit Nix derivation — pin version via `fetchurl`, replace impure curl install
+
+### v0.4 — Verification Infrastructure
+- [ ] MoonBit Wasm oracle infrastructure — `#declaration_only` specs, WIT interfaces, wasmtime integration
+- [ ] Audit queue foundation — ractor supervision + wasmtime sandboxing
 
 ## Licence
 

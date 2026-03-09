@@ -53,7 +53,7 @@
       },
       "original": {
         "owner": "nix-community",
-        "ref": "main",
+        "ref": "refs/tags/2511.7.1",
         "repo": "NixOS-WSL",
         "type": "github"
       }
@@ -79,8 +79,7 @@
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
-        "rust-overlay": "rust-overlay",
-        "sops-nix": "sops-nix"
+        "rust-overlay": "rust-overlay"
       }
     },
     "rust-overlay": {
@@ -100,26 +99,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "sops-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1772340640,
-        "narHash": "sha256-1nq7+Kt5IUBD8Hu3nptVPbMf+22rNJoHT0t9L1X+GKA=",
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "rev": "dec4d8eac700dcd2fe3c020857d3ee220ec147f1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Mic92",
-        "repo": "sops-nix",
         "type": "github"
       }
     }

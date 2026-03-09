@@ -2,7 +2,9 @@
 secrets.yaml
 secrets.json
 *.age
-~/.secrets.env
+*.env
+.secrets.env
+secrets.env
 
 # Backups
 *.bak
