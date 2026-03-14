@@ -26,7 +26,23 @@
     # };
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, home-manager, rust-overlay, ... }: {
+  outputs = { self, nixpkgs, nixos-wsl, home-manager, rust-overlay, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      # Batch 0.5: inner-circle skeleton only.
+      pkgSets = import ./lib/pkg-sets.nix { inherit pkgs; };
+    in
+    {
+    # nix flake check smoke-test: validates pkg-sets.nix evaluates without errors
+    # and all package references resolve in nixpkgs.
+    checks.${system}.pkg-sets-eval = pkgs.runCommand "pkg-sets-eval" { } ''
+      echo "core:      ${toString (builtins.length pkgSets.core)} pkgs"
+      echo "shell:     ${toString (builtins.length pkgSets.shell)} pkgs"
+      echo "dev-tools: ${toString (builtins.length pkgSets."dev-tools")} pkgs"
+      touch $out
+    '';
+
     nixosConfigurations.apeiron = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
